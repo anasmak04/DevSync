@@ -30,13 +30,17 @@ public class UserRepository {
     }
 
 
-    public void delete(User user) {
+    public void delete(Long userId) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.remove(user);
+        User user = em.find(User.class, userId);
+        if (user != null) {
+            em.remove(user);
+        }
         em.getTransaction().commit();
         em.close();
     }
+
 
     public User findById(Long id) {
         EntityManager em = emf.createEntityManager();

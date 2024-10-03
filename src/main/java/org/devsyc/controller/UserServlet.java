@@ -45,14 +45,9 @@ public class UserServlet extends HttpServlet {
             userRepository.update(user);
         } else if ("delete".equals(action)) {
             Long userId = Long.valueOf(req.getParameter("id"));
-            User user = userRepository.findById(userId);
-
-            userRepository.delete(user);
-            userRepository.delete(user);
+            userRepository.delete(userId);
             res.sendRedirect("users");
         }
-
-        res.sendRedirect("users");
     }
 
     @Override
