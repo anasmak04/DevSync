@@ -11,7 +11,7 @@ public class UserRepository {
     private EntityManagerFactory emf;
 
     public UserRepository() {
-        this.emf = Persistence.createEntityManagerFactory("yourPersistenceUnit"); // Adjust your persistence unit name
+        this.emf = Persistence.createEntityManagerFactory("yourPersistenceUnit");
     }
 
     public void save(User user) {

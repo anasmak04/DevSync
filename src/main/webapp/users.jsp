@@ -37,13 +37,13 @@
         <td class="py-2 px-4 border-b">${user.role}</td>
         <td class="py-2 px-4 border-b">
           <form action="users" method="POST" style="display:inline;">
-            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="action" value="delete" class="cursor-pointer">
             <input type="hidden" name="id" value="${user.id}">
             <input type="submit" value="Delete" class="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600 transition duration-200" onclick="return confirm('Are you sure you want to delete this user?');">
           </form>
 
           <form action="users" method="GET" style="display:inline;">
-            <input type="hidden" name="action" value="edit">
+            <input type="hidden" name="action" value="edit" class="cursor-pointer">
             <input type="hidden" name="id" value="${user.id}">
             <input type="submit" value="Edit" class="bg-blue-500 text-white rounded px-3 py-1 hover:bg-blue-600 transition duration-200">
           </form>
@@ -60,7 +60,6 @@
 </div>
 
 <hr class="my-4">
-
 
 </body>
 </html>

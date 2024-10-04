@@ -34,6 +34,9 @@ public class UserServlet extends HttpServlet {
             Role role = Role.valueOf(req.getParameter("role"));
             User user = new User(null, firstName, lastName, email, password, role);
             userRepository.save(user);
+
+            res.sendRedirect("users");
+
         } else if ("update".equals(action)) {
             Long userId = Long.valueOf(req.getParameter("id"));
             String firstName = req.getParameter("firstName");
@@ -43,9 +46,13 @@ public class UserServlet extends HttpServlet {
             Role role = Role.valueOf(req.getParameter("role"));
             User user = new User(userId, firstName, lastName, email, password, role);
             userRepository.update(user);
+
+            res.sendRedirect("users");
+
         } else if ("delete".equals(action)) {
             Long userId = Long.valueOf(req.getParameter("id"));
             userRepository.delete(userId);
+
             res.sendRedirect("users");
         }
     }
@@ -60,7 +67,6 @@ public class UserServlet extends HttpServlet {
             req.setAttribute("user", user);
             req.getRequestDispatcher("/editUser.jsp").forward(req, res);
         } else {
-
             List<User> users = userRepository.findAll();
             req.setAttribute("users", users);
             req.getRequestDispatcher("/users.jsp").forward(req, res);
