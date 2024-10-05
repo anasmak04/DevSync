@@ -1,0 +1,21 @@
+package org.devsyc.domain.entities;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Entity
+@Table(name = "tags")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Tag {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    @ManyToMany(mappedBy = "tasks")
+    private List<Task> tasks;
+}

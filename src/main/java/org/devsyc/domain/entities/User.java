@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.devsyc.domain.enums.Role;
 
+import java.util.List;
+
 @Entity @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -19,4 +21,6 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+
 }
