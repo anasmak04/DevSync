@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakarta.ee/web-app_5_0.xsd"
+         version="5.0">
+
+
+
+
+  <servlet>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>org.example.controller.user.UserController</servlet-class>
+
+    <multipart-config>
+      <location></location>
+      <max-file-size>20848820</max-file-size>
+      <max-request-size>418018841</max-request-size>
+      <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/user/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/public/*</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
